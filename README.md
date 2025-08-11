@@ -177,7 +177,7 @@ flowchart LR
 ```
 
 > [!TIP] 
-[Detailed data structure explained here](https://github.com/rizuchaa/finance-transaction/tree/main/dags#readme)
+[Detailed data structure explained here](https://github.com/rizuchaa/finance-transaction/tree/main/config/scripts#readme)
 
 In the process, I found converting the currency to USD was challenging, since the data was not implied to the real currencies, such as:
 
@@ -193,6 +193,71 @@ since the conversions seems 'off' (Rp155.5 = $0.0095), The data will be interpol
 - JPY: amount * 100 (before conversion)
 
 # Case: Fraud Analysis
+
+**Objective:**  
+
+Identify potential fraudulent transactions by combining transaction data, customer details, and geolocation from the customers.
+
+---
+### 1. Data Sources
+Fraud detection uses a multi-layer data transformation:
+
+1. **`staging_std.sheet_finance_transactions`**  
+   Clean and validate raw transaction records.
+2. **`public_int.int_usd_transaction`**  
+   Convert all amounts to USD and prepare for aggregation.
+3. **`public_int.int_geo_transaction`**  
+   Join transaction data with customer geolocation and account type.
+4. **`public.mart_finance_fraud_transaction`**  
+   Apply fraud detection rules and aggregate results.
+---
+### 2. Fraud Detection Logic
+The fraud logic (implemented in `mart_finance_fraud_transaction`) can be set to:
+- Flag transactions above a **threshold amount** in USD.
+- Detect **multiple transactions in a short time window**.
+- Identify **transactions across distant geographies** within an unrealistic time span.
+- Count **distinct merchants** involved with a single customer in a short period.
+
+These rules are applied in SQL within the dbt model and can be tuned per business needs.
+
+---
+
+### 3. Output Metrics
+The **fraud mart** produces the following KPIs for each `(customer_name, city, province)` group:
+
+| Column | Description |
+|:-- | :-- |
+| `fraud_transaction_count` | Number of transactions flagged as fraud. |
+| `fraud_transaction_usd_total` | Total USD amount of fraud transactions. |
+| `fraud_distinct_merchants` | Number of unique merchants in fraud transactions. |
+| `first_transaction_date` | Earliest fraud transaction date in the group. |
+| `last_transaction_date` | Latest fraud transaction date in the group. |
+
+---
+
+### 4. Example Use Cases
+- **Real-Time Alerts:**  
+  Combine the `mart_finance_fraud_transaction` table with a monitoring dashboards / internal tool to trigger alerts when thresholds are exceeded.
+- **Investigations:**  
+  Enable fraud analysts to query historical suspicious activity by geography, customer, and merchant patterns.
+- **Regulatory Reporting:**  
+  Prepare compliance reports for suspicious activity in financial transactions.
+
+---
+
+### 5. Sample Result: mart_finance_fraud_transaction
+
+### 6. DAG Dependency for Fraud Analysis
+
+```mermaid
+graph TD
+    A[sheet_finance_transactions] --> B[int_usd_transaction]
+    B --> C[int_geo_transaction]
+    C --> D[mart_finance_fraud_transaction]
+```
+
+# Future Update
+All of the environments and codes were not fully optimized.
 
 
 
