@@ -7,8 +7,8 @@ airflow/www/static/dist
 airflow-webserver.pid
 standalone_admin_password.txt
 
-# # dotenv
-# .env
+# dotenv
+.env
 
 # Airflow configuration
 airflow.cfg

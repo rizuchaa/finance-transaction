@@ -50,26 +50,102 @@ cd finance-transaction
 ```
 
 #### Create credentials in .env
-```
-#Airflow database
-AIRFLOW_DB_USER=airflow
-AIRFLOW_DB_PASSWORD=airflow
-AIRFLOW_DB_PORT=5433
-AIRFLOW_DB_NAME=airflow
+```bash
+# POSTGRESQL CONFIGURATION
+POSTGRES_USER=airflow
+POSTGRES_PASSWORD=airflow
+POSTGRES_DB=airflow
+POSTGRES_PORT=5433
 
-#Pipeline database
-PIPELINE_DB_USER=postgres
-PIPELINE_DB_PASSWORD=postgres
-PIPELINE_DB_HOST=finance-transaction-other-postgres-1
-PIPELINE_DB_PORT=5432
-PIPELINE_DB_NAME=staging_finance
+# OTHER POSTGRESQL CONFIGURATION
+OTHER_POSTGRES_USER=postgres
+OTHER_POSTGRES_PASSWORD=new_postgres
+OTHER_POSTGRES_DB=postgres
+OTHER_POSTGRES_PORT=5432
 
-#DBT Configuration
+# DBT Configuration
 DBT_PROJECT_NAME=finance_transaction
 DBT_PROFILE_NAME=finance_transaction_profile
 DBT_TARGET=dev
 
-#PIP Requirements
+# PIP Requirements
 _PIP_ADDITIONAL_REQUIREMENTS=pandas pyarrow psycopg2-binary dbt-postgres python-dotenv
 ```
+
+#### Launch Docker
+```bash
+docker-compose up -d
+```
+
+This launches:
+- Postgres (Airflow metadata)
+- Postgres (pipeline database)
+- Redis
+- Airflow Scheduler, Webserver, Worker
+
+> Access Airflow UI at: http://localhost:8080
+
+# Set-up & Running dbt
+
+## 1. Install dbt
+The dbt is already installed when you launch Docker (see PIP Requirements)
+
+## 2. Configure dbt Profile
+dbt uses a profiles.yml file (usually in ~/dbt_project/staging/profiles.yml):
+```yaml
+finance_transaction:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: <pipeline-postgre-container>
+      user: postgres
+      password: <password>
+      port: 5432
+      dbname: staging_finance
+      schema: staging
+    
+    prod:
+      type: postgres
+      host: <pipeline-postgre-container>
+      user: postgres
+      password: <password>
+      port: 5432
+      dbname: staging_finance # This project aims all data recorded in the same db.
+      schema: public
+```
+If running dbt inside Docker, host should be postgres-pipeline (the container name).
+
+## 3. Run dbt (inside Docker)
+```bash
+docker compose exec -it finance-transaction-airflow-worker-1 bash
+cd config/scripts/{desired project}
+
+# Install dependencies (if any)
+dbt deps
+
+# Run all models
+dbt run
+
+# Test models
+dbt test
+```
+
+# Workflow
+- Airflow orchestrates data ingestion from data/data_source/ and loads into the pipeline PostgreSQL.
+- dbt transforms raw data into structured, analytics-ready tables.
+- Airflow DAGs trigger dbt runs after ingestion completes.
+- the rest of dbt process from ingestion -> staging -> intermediate -> mar orchestrated by Airflow.
+
+> DAG explanation :
+
+From the DAG structure, the data flow described as:
+| Stage	|DAG	|Data Source	|Output Table
+|:--|:--|:--|:--|
+|Ingestion |	ingest_finance_day	| Google Sheets	| staging.* tables |
+|Presentation|	present_finance_day|	Standardized tables	| Curated USD & GEO transactions|
+|Datamart|	datamart_finance_day|	Presentation tables	| Fraud analysis mart|
+
+
+
 
