@@ -246,8 +246,8 @@ The **fraud mart** produces the following KPIs for each `(customer_name, city, p
 ---
 
 ### 5. Sample Result: mart_finance_fraud_transaction
-[!CAUTION]
-The transaction amount stores in hundreds ('00)
+> [!CAUTION]
+> The transaction amount stores in hundreds ('00)
 
 [Result](https://github.com/rizuchaa/finance-transaction/blob/main/data/mart/mart_finance_fraud_transaction_202508112306.md)
 
