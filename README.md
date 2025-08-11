@@ -246,6 +246,10 @@ The **fraud mart** produces the following KPIs for each `(customer_name, city, p
 ---
 
 ### 5. Sample Result: mart_finance_fraud_transaction
+[!ATTENTION]
+The transaction amount stores in hundreds ('00)
+
+[Result]()
 
 ### 6. DAG Dependency for Fraud Analysis
 
@@ -257,7 +261,9 @@ graph TD
 ```
 
 # Future Update
-All of the environments and codes were not fully optimized.
+All of the environments and codes were not fully optimized. In the near future, this repo will be updated with newest approach:
+- Simplify code (by utilizing functions & modules) to reduce redundant code
+- Scrapping daily currencies to optimize currency conversion.
 
 
 
