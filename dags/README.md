@@ -1,7 +1,5 @@
 # DAG Flow: Explained
 
-## Overview
-
 The pipeline is composed of **three sequential DAGs**:
 
 1. **`ingest_finance_day`** — Ingests raw data into a staging schema and runs standardization transformations.
