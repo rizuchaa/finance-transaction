@@ -3,7 +3,7 @@
     alias='mart_finance_fraud_transaction'
 ) }}
 
-WITH flagged AS (
+WITH stg1 AS (
     SELECT
         transaction_id,
         customer_name,
@@ -14,21 +14,21 @@ WITH flagged AS (
         transaction_date,
 
         CASE
-            WHEN transaction_usd_amount > 10000 THEN TRUE
-            WHEN transaction_date >= CURRENT_DATE - INTERVAL '1 day' AND transaction_usd_amount > 5000 THEN TRUE
+            WHEN transaction_usd_amount > 1000 THEN TRUE
+            WHEN transaction_date >= CURRENT_DATE - INTERVAL '1 day' AND transaction_usd_amount > 500 THEN TRUE
             ELSE FALSE
         END AS is_fraud,
 
         CASE
-            WHEN transaction_usd_amount > 10000 THEN 'Large transaction amount.'
-            WHEN transaction_date >= CURRENT_DATE - INTERVAL '1 day' AND transaction_usd_amount > 5000 THEN 'Recent large transaction.'
+            WHEN transaction_usd_amount > 1000 THEN 'Large transaction amount.'
+            WHEN transaction_date >= CURRENT_DATE - INTERVAL '1 day' AND transaction_usd_amount > 500 THEN 'Recent large transaction.'
             ELSE NULL
         END AS fraud_reason
 
-    FROM {{ source('public_int', 'int_geo_transaction') }}
-),
+   FROM {{ source('public_int', 'int_geo_transaction') }}
+), 
 
-aggregated AS (
+stg AS (
     SELECT
         customer_name,
         city,
@@ -45,9 +45,8 @@ aggregated AS (
           COALESCE(customer_name, '') || COALESCE(city, '') || COALESCE(province, '')
         ) AS fraud_agg_id
 
-    FROM flagged
+    FROM stg1
     WHERE is_fraud = TRUE
     GROUP BY customer_name, city, province
 )
-
-SELECT * FROM aggregated
+SELECT * FROM stg

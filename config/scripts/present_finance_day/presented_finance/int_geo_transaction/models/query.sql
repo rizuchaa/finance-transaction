@@ -18,12 +18,12 @@ WITH stg AS (
         merchant_guid,
         transaction_date
     
-    FROM public_int.int_usd_transaction usd
+    FROM {{ source('public_int', 'int_usd_transaction') }} usd
 
-    LEFT JOIN staging_std.sheet_finance_accounts accounts
+    LEFT JOIN {{ source('staging_std', 'sheet_finance_accounts') }}  accounts
         ON usd.account_id = accounts.account_id
     
-    LEFT JOIN staging_std.sheet_finance_customers customers
+    LEFT JOIN {{ source('staging_std', 'sheet_finance_customers') }} customers
         ON accounts.customer_id = customers.customer_id
     
     WHERE accounts.account_id IS NOT NULL
