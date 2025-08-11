@@ -173,8 +173,24 @@ flowchart LR
     INT_USD --> INT_GEO
 
     %% MART
-    INT_GEO --> MART[mart_finance_fraud_transaction]
+    INT_GEO --> MART[public.mart_finance_fraud_transaction]
 ```
+
+> [!TIP] 
+[Detailed data structure explained here](!https://github.com/rizuchaa/finance-transaction/tree/main/dags#readme)
+
+In the process, i found converting the currency to USD was challenging, since the data was not implied to the real currencies, such as:
+
+| currency	|amount	|
+|:--|:--|
+|USD |	503.15	| 
+|IDR|	155.50|
+|JPY|	203.50|
+
+since the conversions seems 'off' (Rp155.5 = $0.0095), The data will be interpolated as below:
+
+- IDR: amount * 10000 (before conversion)
+- JPY: amount * 100 (before conversion)
 
 # Case: Fraud Analysis
 
