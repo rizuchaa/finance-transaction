@@ -138,7 +138,7 @@ dbt test
 - the rest of dbt process from ingestion -> staging -> intermediate -> mart orchestrated by Airflow.
 
 > [!TIP] 
-[The DAG Structure explained here](!https://github.com/rizuchaa/finance-transaction/tree/main/dags#readme)
+[The DAG Structure explained here](https://github.com/rizuchaa/finance-transaction/tree/main/dags#readme)
 
 From the DAG structure, the data flow described as:
 | Stage	|DAG	|Data Source	|Output Table
@@ -177,9 +177,9 @@ flowchart LR
 ```
 
 > [!TIP] 
-[Detailed data structure explained here](!https://github.com/rizuchaa/finance-transaction/tree/main/dags#readme)
+[Detailed data structure explained here](https://github.com/rizuchaa/finance-transaction/tree/main/dags#readme)
 
-In the process, i found converting the currency to USD was challenging, since the data was not implied to the real currencies, such as:
+In the process, I found converting the currency to USD was challenging, since the data was not implied to the real currencies, such as:
 
 | currency	|amount	|
 |:--|:--|
