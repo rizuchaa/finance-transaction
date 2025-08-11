@@ -137,12 +137,13 @@ dbt test
 - Airflow DAGs trigger dbt runs after ingestion completes.
 - the rest of dbt process from ingestion -> staging -> intermediate -> mar orchestrated by Airflow.
 
-> DAG explanation :
+> [!TIP] 
+[The DAG Structure explained here](!https://github.com/rizuchaa/finance-transaction/tree/main/dags#readme)
 
 From the DAG structure, the data flow described as:
 | Stage	|DAG	|Data Source	|Output Table
 |:--|:--|:--|:--|
-|Ingestion |	ingest_finance_day	| Google Sheets	| staging.* tables |
+|Ingestion |	ingest_finance_day	| CSV	| staging.* tables |
 |Presentation|	present_finance_day|	Standardized tables	| Curated USD & GEO transactions|
 |Datamart|	datamart_finance_day|	Presentation tables	| Fraud analysis mart|
 
