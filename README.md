@@ -53,13 +53,13 @@ cd finance-transaction
 ```bash
 # POSTGRESQL CONFIGURATION
 POSTGRES_USER=airflow
-POSTGRES_PASSWORD=airflow
+POSTGRES_PASSWORD=<password>
 POSTGRES_DB=airflow
 POSTGRES_PORT=5433
 
 # OTHER POSTGRESQL CONFIGURATION
 OTHER_POSTGRES_USER=postgres
-OTHER_POSTGRES_PASSWORD=new_postgres
+OTHER_POSTGRES_PASSWORD=<password>
 OTHER_POSTGRES_DB=postgres
 OTHER_POSTGRES_PORT=5432
 
@@ -246,10 +246,10 @@ The **fraud mart** produces the following KPIs for each `(customer_name, city, p
 ---
 
 ### 5. Sample Result: mart_finance_fraud_transaction
-[!ATTENTION]
-The transaction amount stores in hundreds ('00)
+> [!CAUTION]
+> The transaction amount stores in hundreds ('00)
 
-[Result]()
+[Result](https://github.com/rizuchaa/finance-transaction/blob/main/data/mart/mart_finance_fraud_transaction_202508112306.md)
 
 ### 6. DAG Dependency for Fraud Analysis
 
