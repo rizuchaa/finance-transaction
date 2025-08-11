@@ -135,7 +135,7 @@ dbt test
 - Airflow orchestrates data ingestion from data/data_source/ and loads into the pipeline PostgreSQL.
 - dbt transforms raw data into structured, analytics-ready tables.
 - Airflow DAGs trigger dbt runs after ingestion completes.
-- the rest of dbt process from ingestion -> staging -> intermediate -> mar orchestrated by Airflow.
+- the rest of dbt process from ingestion -> staging -> intermediate -> mart orchestrated by Airflow.
 
 > [!TIP] 
 [The DAG Structure explained here](!https://github.com/rizuchaa/finance-transaction/tree/main/dags#readme)
@@ -146,6 +146,37 @@ From the DAG structure, the data flow described as:
 |Ingestion |	ingest_finance_day	| CSV	| staging.* tables |
 |Presentation|	present_finance_day|	Standardized tables	| Curated USD & GEO transactions|
 |Datamart|	datamart_finance_day|	Presentation tables	| Fraud analysis mart|
+
+# Data Structure
+The data structure follows the ELT process, from
+- ingestion (raw_data) -> 
+- staging (cleanse and impute data) -> 
+- intermediate (join & create reusable tables) -> 
+- mart (reporting view).
+
+```mermaid
+flowchart LR
+    %% RAW
+    CSV1[account.csv] --> RAW1[staging.raw_sheet_finance_accounts]
+    CSV2[customers.csv] --> RAW2[staging.raw_sheet_finance_customers]
+    CSV3[transactions.csv] --> RAW3[staging.raw_sheet_finance_transactions]
+
+    %% STD
+    RAW1 --> STD1[staging_std.std_sheet_finance_accounts]
+    RAW2 --> STD2[staging_std.std_sheet_finance_customers]
+    RAW3 --> STD3[staging_std.std_sheet_finance_transactions]
+
+    %% INT
+    STD3 --> INT_USD[public_int.int_usd_transaction]
+    STD1 --> INT_GEO[public_int.int_geo_transaction]
+    STD2 --> INT_GEO
+    INT_USD --> INT_GEO
+
+    %% MART
+    INT_GEO --> MART[mart_finance_fraud_transaction]
+```
+
+# Case: Fraud Analysis
 
 
 
