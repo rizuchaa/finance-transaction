@@ -1,0 +1,13 @@
+name: sheet_finance_transactions
+version: '1.0.0'
+profile: finance_project
+config-version: 2
+
+# This is where dbt will look for models
+model-paths: ["models"]
+
+# Optional but recommended
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_modules"

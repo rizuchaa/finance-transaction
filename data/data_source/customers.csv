@@ -1,0 +1,101 @@
+customer_id,first_name,last_name,date_of_birth,address,city,province
+1.0,Danielle,Johnson,1965-07-14,18196 Anthony Forge,New Carolyn,Oklahoma
+2.0,James,Santos,1981-03-10,,South Bridget,Alabama
+3.0,Katherine,Moore,1974-02-03,35116 Michael Key Suite 078,South Christianport,South Dakota
+4.0,Christine,Hensley,1983-01-25,34131 Ramirez Roads,Franciscostad,Indiana
+5.0,Elizabeth,Miles,1989-03-24,283 Steven Groves,Lake Mark,Wyoming
+6.0,Kimberly,Perez,1951-06-12,4139 Lewis Parks Suite 724,East Julie,Ohio
+7.0,Jose,Richards,2001-08-27,3287 Katelyn Wall Apt. 226,South Patrickmouth,North Dakota
+8.0,John,Tran,2004-03-29,,Lake Nicoleview,Wyoming
+9.0,Danielle,Rodriguez,1974-10-19,48281 Skinner Parkways Apt. 252,New Mariotown,Delaware
+10.0,Sarah,Koch,1997-10-26,,Johnbury,Oregon
+11.0,Stacey,Miller,1977-10-08,227 Joseph Well,Brandtside,Wisconsin
+12.0,Jessica,Harris,1967-08-30,8713 Caleb Brooks Apt. 930,Lake Crystalbury,California
+13.0,Rebecca,Heath,1953-09-10,,West Elizabeth,Indiana
+14.0,Amber,Cummings,2000-10-04,76311 Gomez Loop Suite 010,Chandlerville,Kansas
+15.0,James,Herrera,1957-09-17,7317 Brent Plains,North Sarabury,Hawaii
+16.0,Richard,Olson,1999-09-24,60647 Henderson Street,Mooreport,Indiana
+17.0,Tanya,Riley,1981-01-10,09788 Brian Pass Apt. 219,Lake Michellefurt,Delaware
+18.0,Shelly,Hudson,1983-02-27,169 Donovan Ford,Johnfurt,Florida
+19.0,Emily,Evans,1967-12-02,79911 William Curve,Nicolebury,Mississippi
+20.0,Justin,Kim,1981-02-01,,Cherylhaven,Alabama
+21.0,Elizabeth,Spencer,2003-08-16,41182 Campbell Fords,Jamesview,North Carolina
+22.0,Tracy,Whitehead,1998-08-27,640 Matthew Curve,Evanmouth,Oklahoma
+23.0,Janice,Hoffman,1956-01-26,059 Russell Canyon,Michaelton,Minnesota
+24.0,Jason,Wright,1955-07-18,232 Nicole Burg Apt. 563,Erikville,Missouri
+25.0,Monica,Garrison,1962-06-26,4330 Raymond Harbors Apt. 458,Frazierside,Michigan
+26.0,Sheila,Wilson,2005-11-11,401 Reed Turnpike,Samuelhaven,Delaware
+27.0,Paul,Ray,1964-05-10,,Smithside,Utah
+28.0,Jennifer,Harmon,1988-06-23,,Ryanmouth,South Carolina
+29.0,Lee,Charles,1991-04-30,465 Terry Plaza Apt. 366,New Ashley,Montana
+30.0,Amy,Smith,1966-03-22,957 Ramos Forest Suite 214,Clarencebury,Utah
+31.0,Lance,Drake,1958-02-16,79176 Jennifer Lights,Rossberg,Tennessee
+32.0,Grace,Stafford,1999-06-27,3287 Angela Vista,South Dennismouth,Texas
+33.0,Amanda,Hansen,1967-12-26,868 Merritt Summit Suite 743,Katiehaven,New York
+34.0,Courtney,Hill,1954-01-28,45581 Edward Lights Apt. 316,Riveramouth,Nebraska
+35.0,Bryan,Wall,1972-03-03,670 Evans Loaf,Medinaside,Rhode Island
+36.0,Rachael,Freeman,1965-05-30,65627 Tina Place Apt. 699,North Dawnberg,New Jersey
+37.0,Hunter,Green,1968-07-26,5646 Conley Mountains Apt. 805,Lake Casey,Tennessee
+38.0,Billy,Johnson,1963-12-04,232 Caldwell Port,South Holly,Wyoming
+39.0,Miguel,Obrien,2005-06-23,41904 Sanders Stravenue,North Brittany,South Dakota
+40.0,John,Terry,1967-01-27,058 Stanley Cliff,Alexanderchester,New York
+41.0,Daniel,Yu,1986-06-12,262 Gilbert Plain Suite 769,Marcusbury,Colorado
+42.0,Joshua,Hayes,1993-02-09,,Rogersfort,Massachusetts
+43.0,Hunter,Lewis,1995-11-09,9480 Christopher Stravenue Suite 783,Brewerfort,New Hampshire
+44.0,Laura,Davis,1962-06-08,9578 Coleman Summit,Michaelmouth,Louisiana
+45.0,Kristopher,Hall,1991-06-01,,Davidside,Wisconsin
+46.0,Hannah,Lee,1992-06-02,989 Hooper Village Apt. 435,West Alexis,Ohio
+47.0,David,Williams,1952-09-29,271 Audrey Mountains Suite 752,West Shelleyfort,Delaware
+48.0,Lynn,Morales,1953-11-17,29413 Angela Mall,Port Alexandra,New Hampshire
+49.0,Rebekah,,1983-09-19,9909 Stacey Fords Apt. 412,East Andrea,Hawaii
+50.0,Aaron,Hayes,1984-01-09,34471 Sandra Turnpike Apt. 618,Lake Edward,Louisiana
+51.0,Margaret,Jones,1959-03-16,947 Taylor Hollow Suite 488,Kimton,Nevada
+52.0,Jessica,Munoz,1951-01-30,990 Johnston Track,South April,New Hampshire
+53.0,Sabrina,White,1983-07-13,75655 Mia Isle Suite 746,South Christopherview,Massachusetts
+54.0,Darrell,Barton,1999-09-30,876 Jacob Lake,Garrettton,Indiana
+55.0,Joseph,Anderson,1966-04-15,09324 Andrea Course Apt. 171,South Sarah,Maine
+56.0,William,Hill,1997-12-29,78263 Michelle Harbor Suite 584,West Jessicashire,Pennsylvania
+57.0,Yolanda,Burns,1958-03-14,5886 Cantu Ways Apt. 396,Port Kimberly,Arizona
+58.0,Louis,Kennedy,2002-07-24,2702 Kane Well Suite 187,Lake Douglasberg,California
+59.0,Terrance,Costa,1969-03-21,158 Finley Road Suite 809,,Iowa
+60.0,Julie,Hamilton,1955-04-17,2400 Flynn Hill,Nicholasberg,Kansas
+61.0,Amanda,Knight,1995-07-19,19693 Durham Divide,South Dana,New Jersey
+62.0,Jonathan,Smith,1996-04-01,821 Landry Radial Suite 647,Jamesfurt,New Mexico
+63.0,Daniel,James,1970-05-27,406 Smith Way Apt. 974,New Laurie,Iowa
+64.0,Dana,Oliver,1988-11-21,104 Johnson Lakes,North Renee,Massachusetts
+65.0,Julie,Thompson,1957-03-31,842 Sloan Orchard Suite 517,East Karenbury,Utah
+66.0,Jennifer,Whitney,2005-09-06,60481 Richardson Summit Suite 965,Lake Jesustown,South Carolina
+67.0,Nicole,Hoffman,2002-08-31,174 Wilson Cape,West Wendyville,Connecticut
+68.0,Jimmy,Medina,1972-02-15,,Ellenside,Nebraska
+69.0,Brenda,Barber,2000-12-07,9640 Robinson Mills,Port Michael,Utah
+70.0,Michael,Winters,1986-12-25,4317 Elizabeth Row,North Kristinbury,Florida
+71.0,Kristin,Harris,1997-09-16,335 Kristina Ranch,West Micheleberg,Florida
+72.0,Amber,Lindsey,1955-12-16,05395 Grant Center,Lake Robert,Delaware
+73.0,Julie,Alvarez,1994-09-15,8390 Ellis Burgs,South Melaniechester,Utah
+74.0,Daniel,Joseph,1975-04-23,9212 Weber Prairie,Oscarhaven,Maine
+75.0,Shawn,Jacobs,1955-05-02,836 Beasley Loop,Mariafurt,Nebraska
+76.0,Jessica,Edwards,1967-09-16,2711 Christopher Court Suite 280,Elizabethchester,Minnesota
+77.0,Morgan,Pugh,1974-02-10,9451 Eric Orchard,Port Daniel,Oklahoma
+78.0,Michael,Farmer,1982-11-17,998 Chelsea Shoals Suite 024,Sandrastad,Alabama
+79.0,Howard,Thomas,1987-09-16,01836 Chavez Estate,Larrymouth,
+80.0,,Carlson,2000-10-24,90147 Tucker Mills,Nelsonhaven,Delaware
+81.0,Michael,Rodriguez,1988-12-01,403 Joyce Centers Apt. 343,Port Jonathan,Massachusetts
+82.0,David,Jimenez,1974-07-23,8388 Jones Wall,South Andrewland,Massachusetts
+83.0,Barbara,Berry,1990-09-25,1605 Laurie River Suite 516,East Ryanfurt,North Dakota
+,Christian,Harrell,1992-11-02,2181 Rebecca Keys,Jessicaberg,Kansas
+85.0,Curtis,Scott,1959-08-24,127 Webster Trace,Maldonadoshire,Tennessee
+86.0,Cynthia,Weber,1999-09-16,71774 Vargas Knoll Apt. 477,North Miguelport,California
+87.0,Deanna,Madden,1954-10-26,9807 Marc Mountains Apt. 071,Toniland,North Carolina
+88.0,Debbie,Williams,1990-08-16,892 Watson Haven Suite 659,Port Crystalmouth,California
+89.0,Mark,Grant,1972-01-01,,Jenniferberg,Michigan
+90.0,Christopher,Alvarado,2002-10-02,,Tammyfurt,Florida
+91.0,Brooke,Hurley,1967-07-16,528 Debbie Manors Suite 054,East Matthew,Wyoming
+92.0,Tom,Perez,1957-07-24,1888 Ebony Wells,New Nicholas,Hawaii
+93.0,Henry,Schwartz,1985-10-25,706 Rhodes Freeway,Bishopmouth,Iowa
+94.0,Amanda,Collins,1996-06-24,59774 Shaw Manor Apt. 392,Brettfort,Mississippi
+95.0,Angela,Garcia,1998-08-23,,West Christopherburgh,Louisiana
+96.0,Shannon,Palmer,1997-10-12,75060 Shaw Freeway,Vangstad,Iowa
+97.0,Anthony,Galvan,1998-04-03,20472 West Avenue Apt. 043,New Shelby,Rhode Island
+98.0,Allison,Rodriguez,1966-04-17,03697 Daniel Parks Apt. 893,West Ruben,South Carolina
+99.0,Michael,Duncan,,518 Peter Mountains,Lake Paulstad,Kentucky
+100.0,Julie,Kelly,1953-07-02,195 Bradley Plains,Lisaburgh,Wyoming

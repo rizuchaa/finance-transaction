@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: staging
+    database: staging_finance
+    schema: staging
+    tables:
+      - name: raw_sheet_finance_accounts
+
+models:
+  - name: std_sheet_finance_accounts
+    description: "Standardized finance accounts table."
+    columns:
+      - name: account_id
+        description: "Account unique ID."
+        tests:
+          - not_null
+          - unique
+      - name: customer_id
+        description: "Customer ID associated with the account."
+        tests:
+          - not_null
+      - name: account_type
+        description: "Type of account. enum: loan, savings, checking."
+        tests:
+          - not_null
+      - name: account_balance
+        description: "Amount of the transaction."
+      - name: opening_date
+        description: "Date of the transaction."

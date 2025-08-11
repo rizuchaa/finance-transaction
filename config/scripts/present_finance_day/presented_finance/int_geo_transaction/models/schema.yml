@@ -1,0 +1,43 @@
+version: 2
+
+sources:
+  - name: public_int
+    database: staging_finance
+    schema: public_int
+    tables:
+      - name: int_usd_transaction
+
+  - name: staging_std
+    database: staging_finance
+    schema: staging_std
+    tables:
+      - name: sheet_finance_accounts
+      - name: sheet_finance_customers
+
+models:
+  - name: int_geo_transaction
+    description: "Detailed transaction data by geography."
+    columns:
+      - name: transaction_id
+        description: "Unique transaction identifier."
+        tests:
+          - not_null
+          - unique
+      - name: customer_name
+        description: "Customer's name."
+      - name: account_type
+        description: "Account type. enum: LOAN, CHECKING, SAVINGS."
+      - name: currency_type
+        description: "Currency type."
+      - name: transaction_amount
+        description: "Total transaction amount by each currency."
+      - name: transaction_usd_amount
+        description: "Total transaction amount in USD."
+      - name: city
+        description: "Customer's city location"
+      - name: province
+        description: "Customer's province location"
+      - name: merchant_guid
+        description: "Merchant Globally Unique ID"
+      - name: transaction_date
+        description: "Transaction Date."

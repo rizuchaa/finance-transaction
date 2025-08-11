@@ -1,0 +1,36 @@
+version: 2
+
+sources:
+  - name: staging_std
+    database: staging_finance
+    schema: staging_std
+    tables:
+      - name: sheet_finance_transactions
+
+models:
+  - name: int_usd_transaction
+    description: "Active account from recent transaction before 90 days."
+    columns:
+      - name: transaction_id
+        description: "Unique transaction identifier."
+        tests:
+          - not_null
+          - unique
+      - name: account_id
+        description: "Unique account identifier."
+        tests:
+          - not_null
+          - unique
+          - relationships:
+              to: ref('std_sheet_finance_accounts_20250810')
+              field: account_id
+      - name: currency_type
+        description: "Currency type."
+      - name: transaction_amount
+        description: "Total transaction amount by each currency."
+      - name: transaction_usd_amount
+        description: "Total transaction amount in USD."
+      - name: merchant_guid
+        description: "Merchant Globally Unique ID"
+      - name: transaction_date
+        description: "Transaction Date."

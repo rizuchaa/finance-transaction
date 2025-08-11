@@ -1,0 +1,30 @@
+version: 2
+
+sources:
+  - name: staging
+    database: staging_finance
+    schema: staging
+    tables:
+      - name: raw_sheet_finance_customers
+
+models:
+  - name: std_sheet_finance_customers
+    description: "Standardized finance customers table."
+    columns:
+      - name: customer_id
+        description: "Customer unique ID."
+        tests:
+          - not_null
+          - unique
+      - name: first_name
+        description: "Customer's first name."
+      - name: last_name
+        description: "Customer's first name."
+      - name: date_of_birth
+        description: "Customer's date of birth."
+      - name: address
+        description: "Customer's address."
+      - name: city
+        description: "Customer's city location name."
+      - name: province
+        description: "Customer's province location name."

@@ -1,0 +1,24 @@
+# Airflow temporary artifacts
+airflow/git_version
+airflow/www/static/coverage/
+airflow/www/static/dist
+
+/logs/
+airflow-webserver.pid
+standalone_admin_password.txt
+
+# # dotenv
+# .env
+
+# Airflow configuration
+airflow.cfg
+
+# Cache
+__pycache__
+
+# Folder
+
+# DBT
+logs/
+target/
+.user.yml

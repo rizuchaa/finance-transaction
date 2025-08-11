@@ -1,0 +1,34 @@
+version: 2
+
+sources:
+  - name: staging
+    database: staging_finance
+    schema: staging
+    tables:
+      - name: raw_sheet_finance_transactions
+
+models:
+  - name: std_sheet_finance_transactions
+    description: "Standardized finance transactions table."
+    columns:
+      - name: transaction_id
+        description: "Transaction unique ID."
+        tests:
+          - not_null
+          - unique
+      - name: account_id
+        description: "Account ID associated with the transaction."
+        tests:
+          - not_null
+      - name: transaction_type
+        description: "Type of transaction. enum: purchase, transfer, deposit, withdrawal"
+        tests:
+          - not_null
+      - name: transaction_amount
+        description: "Amount of the transaction."
+      - name: currency
+        description: "Currency type of transaction amount."
+      - name: merchant_guid
+        description: "Merchant Globally Unique ID."
+      - name: transaction_date
+        description: "Date of the transaction."

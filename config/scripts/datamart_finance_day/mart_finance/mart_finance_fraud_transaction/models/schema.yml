@@ -1,0 +1,51 @@
+version: 2
+
+sources:
+  - name: public_int
+    database: staging_finance
+    schema: public_int
+    tables:
+      - name: int_geo_transaction
+
+models:
+  - name: mart_finance_fraud_transaction
+    description: |
+      Aggregated fact table identifying and summarizing potential fraudulent transactions by customer and geography.
+    columns:
+      - name: fraud_agg_id
+        description: "Surrogate key for aggregated fraud record."
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: "Name of the customer involved in the transactions."
+        tests:
+          - not_null
+      - name: city
+        description: "Customer's city."
+        tests:
+          - not_null
+      - name: province
+        description: "Customer's province."
+        tests:
+          - not_null
+      - name: fraud_transaction_count
+        description: "Count of flagged fraudulent transactions for the group."
+        tests:
+          - not_null
+      - name: fraud_transaction_usd_total
+        description: "Total USD amount of flagged fraudulent transactions."
+        tests:
+          - not_null
+      - name: fraud_distinct_merchants
+        description: "Number of distinct merchants involved in flagged fraudulent transactions."
+        tests:
+          - not_null
+      - name: first_transaction_date
+        description: "Date of the earliest transaction in the aggregation."
+        tests:
+          - not_null
+      - name: last_transaction_date
+        description: "Date of the latest transaction in the aggregation."
+        tests:
+          - not_null

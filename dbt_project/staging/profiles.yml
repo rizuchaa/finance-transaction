@@ -1,0 +1,24 @@
+finance_project:
+  target: dev  # or 'prod', the default target to use
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('STAGING_HOST') }}"
+      user: "{{ env_var('STAGING_USER') }}"
+      password: "{{ env_var('STAGING_PASSWORD') }}"
+      port: 5432
+      dbname: "{{ env_var('STAGING_DB') }}"
+      schema: "staging"
+      threads: 4
+      keepalives_idle: 0
+
+    prod:
+      type: postgres
+      host: "{{ env_var('STAGING_HOST') }}"
+      user: "{{ env_var('STAGING_USER') }}"
+      password: "{{ env_var('STAGING_PASSWORD') }}"
+      port: 5432
+      dbname: "{{ env_var('STAGING_DB') }}"
+      schema: "public"
+      threads: 4
+      keepalives_idle: 0
